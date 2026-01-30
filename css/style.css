@@ -1,34 +1,21 @@
 /* Importa la fuente Roboto desde Google Fonts con varios grosores */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 
-/* ===== VARIABLES ===== */
-
 /* Define variables CSS globales reutilizables en todo el sitio */
 :root {
-  /* Colores del pato */
   --color-primary: hsl(48, 95%, 60%);
-  /* Amarillo pato */
   --color-secondary: hsl(110, 40%, 45%);
-  /* Verde cabeza */
   --color-dark: hsl(35, 80%, 35%);
-  /* Marrón pico */
 
-  /* Fondos */
   --bg: hsl(200, 50%, 95%);
-  /* Azul cielo/agua */
   --bg-secondary: hsl(200, 40%, 90%);
   --bg-header: hsl(110, 30%, 85%);
-  /* Verde suave */
   --bg-highlight: hsl(48, 100%, 96%);
-  /* Amarillo claro */
   --bg-btc: hsl(35, 90%, 55%);
-  /* Naranja pico */
   --bg-btc-2: hsl(35, 90%, 45%);
 
-  /* Colores de texto */
   --text: hsl(210, 30%, 15%);              /* Texto principal */
 
-  /* Bordes y sombras */
   --border-soft: hsl(200, 20%, 80%);
   --shadow: hsl(48, 40%, 75%);
   --shadow-medium: rgba(0, 0, 0, 0.15);
@@ -37,7 +24,6 @@
 
 /* ===== RESET ===== */
 
-/* Elimina márgenes y paddings por defecto y ajusta el modelo de caja */
 * {
   margin: 0;
   padding: 0;
@@ -48,39 +34,39 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Estilos base del cuerpo del documento */
 body {
   font-family: 'Roboto', sans-serif; /* Fuente global */
-  background-color: var(--bg);       /* Color de fondo general */
+  background-color: var(--bg);      
   min-height: 100vh;                 /* Altura mínima de la ventana */
   display: flex;                     /* Flex para empujar el footer */
   flex-direction: column;            /* Estructura vertical */
 }
 
-/* ===== HEADER / NAV ===== */
 
-/* Estilos del encabezado principal */
 header {
-  background-color: var(--bg-header); /* Fondo del header */
-  padding: 1rem 2rem;                 /* Espaciado interno */
-  display: flex;                      /* Flexbox para alineación */
-  justify-content: space-between;     /* Espacio entre logo y menú */
-  align-items: center;                /* Alineación vertical */
+  background-color: var(--bg-header); 
+  padding: 1rem 2rem;                 
+  display: flex;                      
+  justify-content: space-between;     
+  align-items: center;               
 }
 
 /* Elimina viñetas y convierte el menú en flex */
 nav ul {
   list-style: none;
   display: flex;
-  gap: 1.5rem; /* Separación entre enlaces */
+  gap: 1.5rem; 
 }
-
+.no_highlight{
+  text-decoration: none;
+  color: var(--text);
+}
 /* Estilos base de los enlaces del menú */
 nav a {
-  text-decoration: none;      /* Quita subrayado */
-  color: var(--text);         /* Color del texto */
-  padding: 0.5rem;            /* Área clicable */
-  border-radius: 10px;        /* Bordes redondeados */
+  text-decoration: none;     
+  color: var(--text);        
+  padding: 0.5rem;            
+  border-radius: 10px;        
 }
 
 /* Efecto hover en los enlaces del menú */
@@ -106,7 +92,7 @@ nav a:hover {
   overflow: hidden;            /* Oculta lo que sobresalga */
 }
 
-/* Imagen del hero */
+/* Imagen del hero/////////Al final no he puesto imagen de fondo */
 .hero-img {
   position: absolute;          /* Se coloca como fondo */
   top: 0;
@@ -123,7 +109,11 @@ nav a:hover {
   color: white;
   padding: 2rem;
   text-align: center;
+  margin: 0 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
+
 
 /* ===== BOTONES ===== */
 
@@ -190,19 +180,22 @@ nav a:hover {
   cursor: pointer;
 }
 
+.service p{
+  text-align: justify;
+}
 /* ===== FORMULARIO ===== */
 
 /* Contenedor principal del formulario */
 form {
-  max-width: 600px;                       /* Ancho máximo */
-  margin: 2rem auto;                      /* Centrado horizontal */
-  padding: 2rem;                          /* Espaciado interno */
-  background-color: var(--bg-highlight);  /* Fondo claro */
-  border-radius: 10px;                    /* Bordes redondeados */
-  box-shadow: 0 4px 6px var(--shadow-medium); /* Sombra */
-  display: flex;                          /* Flexbox */
-  flex-direction: column;                 /* Elementos en columna */
-  gap: 1rem;                              /* Separación entre campos */
+  max-width: 600px;                      
+  margin: 2rem auto;                      
+  padding: 2rem;                          
+  background-color: var(--bg-highlight);  
+  border-radius: 10px;                    
+  box-shadow: 0 4px 6px var(--shadow-medium); 
+  display: flex;                          
+  flex-direction: column;                 
+  gap: 1rem;                              
 }
 
 input,
@@ -255,7 +248,7 @@ select:focus {
   background-color: var(--bg-btc-2);
 }
 
-/* ===== CRONOLOGÍA (TABLE) ===== */
+/* ===== CRONOLOGÍA (TABLA) ===== */
 .table-container {
   overflow-x: auto;
   padding: 1rem;
@@ -291,13 +284,11 @@ select:focus {
   background-color: var(--bg-highlight);
 }
 
-/* Specific Columns */
 .phase-cell {
   font-weight: bold;
   color: var(--color-secondary);
 }
 
-/* Status Badges */
 .status-badge {
   display: inline-block;
   padding: 0.25rem 0.75rem;
@@ -339,7 +330,6 @@ select:focus {
   margin: 2rem auto;
   padding: 0 1rem;
   flex: 1;
-  /* Ensures it takes space in the main flex col */
   width: 100%;
 }
 
@@ -354,15 +344,12 @@ select:focus {
 
 .project-sidebar {
   flex-basis: 300px;
-  /* Ancho base */
   flex-shrink: 0;
-  /* No encoger */
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
 
-/* Sidebar Widgets */
 .sidebar-widget {
   background-color: var(--bg-highlight);
   padding: 1.5rem;
@@ -385,7 +372,7 @@ select:focus {
   margin-bottom: 0.5rem;
 }
 
-/* Pricing Table */
+/* Tabla de precios */
 .pricing-table {
   width: 100%;
   border-collapse: collapse;
@@ -452,6 +439,13 @@ footer {
   text-align: center;
   padding: 2rem;
 }
+footer a {
+  text-decoration: none;      
+  color: var(--text);         
+  padding: 0.5rem;            
+  border-radius: 10px;
+}
+
 
 /* ===== RESPONSIVE ===== */
 
