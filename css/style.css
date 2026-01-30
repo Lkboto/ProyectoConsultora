@@ -1,0 +1,494 @@
+/* Importa la fuente Roboto desde Google Fonts con varios grosores */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+/* ===== VARIABLES ===== */
+
+/* Define variables CSS globales reutilizables en todo el sitio */
+:root {
+  /* Colores del pato */
+  --color-primary: hsl(48, 95%, 60%);
+  /* Amarillo pato */
+  --color-secondary: hsl(110, 40%, 45%);
+  /* Verde cabeza */
+  --color-dark: hsl(35, 80%, 35%);
+  /* Marrón pico */
+
+  /* Fondos */
+  --bg: hsl(200, 50%, 95%);
+  /* Azul cielo/agua */
+  --bg-secondary: hsl(200, 40%, 90%);
+  --bg-header: hsl(110, 30%, 85%);
+  /* Verde suave */
+  --bg-highlight: hsl(48, 100%, 96%);
+  /* Amarillo claro */
+  --bg-btc: hsl(35, 90%, 55%);
+  /* Naranja pico */
+  --bg-btc-2: hsl(35, 90%, 45%);
+
+  /* Colores de texto */
+  --text: hsl(210, 30%, 15%);              /* Texto principal */
+
+  /* Bordes y sombras */
+  --border-soft: hsl(200, 20%, 80%);
+  --shadow: hsl(48, 40%, 75%);
+  --shadow-medium: rgba(0, 0, 0, 0.15);
+}
+
+
+/* ===== RESET ===== */
+
+/* Elimina márgenes y paddings por defecto y ajusta el modelo de caja */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Estilos base del cuerpo del documento */
+body {
+  font-family: 'Roboto', sans-serif; /* Fuente global */
+  background-color: var(--bg);       /* Color de fondo general */
+  min-height: 100vh;                 /* Altura mínima de la ventana */
+  display: flex;                     /* Flex para empujar el footer */
+  flex-direction: column;            /* Estructura vertical */
+}
+
+/* ===== HEADER / NAV ===== */
+
+/* Estilos del encabezado principal */
+header {
+  background-color: var(--bg-header); /* Fondo del header */
+  padding: 1rem 2rem;                 /* Espaciado interno */
+  display: flex;                      /* Flexbox para alineación */
+  justify-content: space-between;     /* Espacio entre logo y menú */
+  align-items: center;                /* Alineación vertical */
+}
+
+/* Elimina viñetas y convierte el menú en flex */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem; /* Separación entre enlaces */
+}
+
+/* Estilos base de los enlaces del menú */
+nav a {
+  text-decoration: none;      /* Quita subrayado */
+  color: var(--text);         /* Color del texto */
+  padding: 0.5rem;            /* Área clicable */
+  border-radius: 10px;        /* Bordes redondeados */
+}
+
+/* Efecto hover en los enlaces del menú */
+nav a:hover {
+  background-color: var(--bg-secondary);
+}
+
+/* Tamaño del logo */
+.logo {
+  height: 3rem;
+  width: auto;
+}
+
+/* ===== HERO ===== */
+
+/* Contenedor del hero */
+#hero-index {
+  position: relative;          /* Referencia para posicionar la imagen */
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;            /* Oculta lo que sobresalga */
+}
+
+/* Imagen del hero */
+.hero-img {
+  position: absolute;          /* Se coloca como fondo */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;           /* Cubre todo el hero */
+  z-index: 0;                  /* Detrás del contenido */
+}
+
+/* Contenido del hero */
+.hero-content {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* ===== BOTONES ===== */
+
+/* Botón principal de llamada a la acción */
+.btn-cta-highlight {
+  background-color: var(--bg-btc);
+  color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  display: inline-block;
+  text-decoration: none;
+}
+
+/* Cambio de color al pasar el ratón por el botón */
+.btn-cta-highlight:hover {
+  background-color: var(--bg-btc-2);
+}
+
+/* ===== SERVICIOS ===== */
+.service-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: var(--color-dark);
+  margin: 3rem 0 1.5rem;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.service-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: var(--color-primary);
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+}
+
+.service-content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  padding: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+
+/* Estilo individual de cada tarjeta de servicio */
+.service-content section {
+  background-color: var(--bg-highlight);
+  padding: 2rem;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-content section:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px var(--shadow-medium);
+  cursor: pointer;
+}
+
+/* ===== FORMULARIO ===== */
+
+/* Contenedor principal del formulario */
+form {
+  max-width: 600px;                       /* Ancho máximo */
+  margin: 2rem auto;                      /* Centrado horizontal */
+  padding: 2rem;                          /* Espaciado interno */
+  background-color: var(--bg-highlight);  /* Fondo claro */
+  border-radius: 10px;                    /* Bordes redondeados */
+  box-shadow: 0 4px 6px var(--shadow-medium); /* Sombra */
+  display: flex;                          /* Flexbox */
+  flex-direction: column;                 /* Elementos en columna */
+  gap: 1rem;                              /* Separación entre campos */
+}
+
+input,
+textarea,
+select {
+  padding: 0.8rem;
+  border: 1px solid var(--border-soft);
+  border-radius: 5px;
+  width: 100%;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid var(--color-primary);
+  border-color: transparent;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.checkbox-group input {
+  width: auto;
+}
+
+.btn-submit {
+  background-color: var(--bg-btc);
+  color: white;
+  padding: 1rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.btn-submit:hover {
+  background-color: var(--bg-btc-2);
+}
+
+/* ===== CRONOLOGÍA (TABLE) ===== */
+.table-container {
+  overflow-x: auto;
+  padding: 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.chrono-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px var(--shadow-medium);
+}
+
+.chrono-table th {
+  background-color: var(--color-dark);
+  color: white;
+  padding: 1rem;
+  text-align: left;
+}
+
+.chrono-table td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-soft);
+  color: var(--text);
+  vertical-align: middle;
+}
+
+.chrono-table tbody tr:hover {
+  background-color: var(--bg-highlight);
+}
+
+/* Specific Columns */
+.phase-cell {
+  font-weight: bold;
+  color: var(--color-secondary);
+}
+
+/* Status Badges */
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.status-done {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.status-progress {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.status-pending {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+
+.chrono-table tfoot td {
+  text-align: right;
+  font-style: italic;
+  background-color: var(--bg-secondary);
+  color: var(--text2);
+  font-size: 0.9rem;
+}
+
+/* ===== PROYECTO LAYOUT (Flexbox) ===== */
+.project-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  flex: 1;
+  /* Ensures it takes space in the main flex col */
+  width: 100%;
+}
+
+.project-main {
+  flex-grow: 1;
+  /* Ocupa el espacio restante */
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px var(--shadow-medium);
+}
+
+.project-sidebar {
+  flex-basis: 300px;
+  /* Ancho base */
+  flex-shrink: 0;
+  /* No encoger */
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Sidebar Widgets */
+.sidebar-widget {
+  background-color: var(--bg-highlight);
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px var(--shadow-medium);
+}
+
+.sidebar-widget h3 {
+  color: var(--text2);
+  margin-bottom: 0.5rem;
+  border-bottom: 2px solid var(--color-primary);
+  padding-bottom: 0.5rem;
+}
+
+.sidebar-widget ul {
+  list-style: none;
+}
+
+.sidebar-widget li {
+  margin-bottom: 0.5rem;
+}
+
+/* Pricing Table */
+.pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  background-color: white;
+}
+
+.pricing-table th,
+.pricing-table td {
+  padding: 1rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.pricing-table th {
+  background-color: var(--color-dark);
+  color: white;
+}
+
+.pricing-table tr:nth-child(even) {
+  background-color: var(--bg-secondary);
+}
+
+.pricing-table tr:hover {
+  background-color: var(--bg-highlight);
+}
+
+.price-row td {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: var(--text2);
+}
+
+.intro-text {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.features-grid {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.feature-card {
+  flex: 1;
+  background-color: var(--bg);
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.cta-container {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: auto;
+  background-color: var(--color-dark);
+  color: white;
+  text-align: center;
+  padding: 2rem;
+}
+
+/* ===== RESPONSIVE ===== */
+
+/* Ajustes para pantallas pequeñas (tablets/móvil) */
+@media (max-width: 800px) {
+
+  /* El header pasa a disposición vertical */
+  header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  /* El menú se apila verticalmente */
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+
+  #hero-index {
+    height: auto;
+    padding: 2rem 1rem;
+  }
+
+
+
+  /* Project Layout Responsive */
+  .project-wrapper {
+    flex-direction: column;
+  }
+
+  .project-sidebar {
+    flex-basis: auto;
+  }
+
+  .features-grid {
+    flex-direction: column;
+  }
+}
